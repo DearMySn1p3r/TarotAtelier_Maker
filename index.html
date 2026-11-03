@@ -6,12 +6,8 @@
 <link rel="icon" type="image/png" href="MOMO.png">
 <link rel="apple-touch-icon" href="MOMO.png">
 <title>Tarot Atelier</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sun-typeface/suit@2.0.5/fonts/variable/woff2/SUIT-Variable.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/wanted-sans@1.0.3/fonts/webfonts/variable/split/WantedSansVariable.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spoqa-han-sans@3.3.0/css/SpoqaHanSansNeo.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600&display=swap">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&display=swap">
 <style>
@@ -19,7 +15,7 @@
 :root{
   --bg:#121116; --panel:#18171d; --field:#201f26; --line:#2a2830; --fg:#ecebf0; --muted:#9a96a3; --faint:#67636e;
   --accent:#ecebf0; --accent-fg:#121116; --gold:#c9a96b; --gold-soft:#25211a; --stage:#0d0c10; color-scheme:dark;
-  --ui:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --ui:"SUIT Variable",SUIT,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
 }
 :root[data-theme="light"]{
   --bg:#f5f5f7; --panel:#ffffff; --field:#f4f3f6; --line:#e8e6ec; --fg:#1d1b24; --muted:#77737f; --faint:#a9a5b0;
@@ -271,26 +267,10 @@ input[type=range]{width:100%;accent-color:var(--fg)}
 .lines .auto::after{content:"A";position:absolute;inset:0;display:grid;place-items:center;font-size:10px;font-weight:700;color:#111}
 .lines label{background:conic-gradient(red,#ff0,lime,cyan,blue,#f0f,red)}
 .lines label input{position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer;border:0;padding:0}
-/* ---------- site font options ---------- */
 :root{--ui:"SUIT Variable",SUIT,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif}
-:root[data-font="wanted"]{--ui:"Wanted Sans Variable","Wanted Sans",-apple-system,"Apple SD Gothic Neo",sans-serif}
-:root[data-font="spoqa"]{--ui:"Spoqa Han Sans Neo",-apple-system,"Apple SD Gothic Neo",sans-serif}
-:root[data-font="noto"]{--ui:"Noto Sans KR",-apple-system,"Apple SD Gothic Neo",sans-serif}
-:root[data-font="pretendard"]{--ui:"Pretendard Variable",Pretendard,-apple-system,sans-serif}
-.fontpick{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));z-index:30;display:flex;gap:2px;padding:4px;border:1px solid var(--line);background:var(--panel);border-radius:999px;box-shadow:0 10px 30px -12px rgba(0,0,0,.5)}
-.fontpick button{border:0;background:none;padding:6px 13px;border-radius:999px;font-size:13px;color:var(--muted);cursor:pointer;white-space:nowrap}
-.fontpick button[aria-pressed="true"]{background:var(--field);color:var(--fg)}
-@media (max-width:640px){.fontpick{left:16px;right:16px;transform:none;overflow-x:auto}}
 </style>
 </head>
 <body>
-<div class="fontpick" role="group" aria-label="사이트 폰트 시안">
-  <button type="button" data-f="suit" style="font-family:'SUIT Variable',sans-serif" aria-pressed="true">SUIT</button>
-  <button type="button" data-f="wanted" style="font-family:'Wanted Sans Variable',sans-serif" aria-pressed="false">원티드 산스</button>
-  <button type="button" data-f="spoqa" style="font-family:'Spoqa Han Sans Neo',sans-serif" aria-pressed="false">스포카 한 산스</button>
-  <button type="button" data-f="noto" style="font-family:'Noto Sans KR',sans-serif" aria-pressed="false">노토 산스</button>
-  <button type="button" data-f="pretendard" style="font-family:'Pretendard Variable',sans-serif" aria-pressed="false">프리텐다드</button>
-</div>
 <div class="app">
   <header class="bar">
     <div class="logo">
@@ -413,7 +393,7 @@ input[type=range]{width:100%;accent-color:var(--fg)}
             <div class="fontopt" id="font">
               <button type="button" data-v="cinzel" aria-pressed="true"><b style="font-family:Cinzel,serif">THE STAR</b><span>클래식</span></button>
               <button type="button" data-v="cormorant" aria-pressed="false"><b style="font-family:'Cormorant Garamond',serif;font-weight:600">The Star</b><span>우아하게</span></button>
-              <button type="button" data-v="sans" aria-pressed="false"><b style="font-weight:600;letter-spacing:.2em;font-size:14px">THE STAR</b><span>모던</span></button>
+              <button type="button" data-v="sans" aria-pressed="false"><b style="font-weight:600;letter-spacing:.12em;font-size:14px">THE STAR</b><span>모던</span></button>
             </div>
           </div>
         </div>
@@ -544,12 +524,12 @@ const PAL={
   white: {label:"화이트", bg:"#ffffff", win:"#f0eff3", line:"#22202a", text:"#1d1b24", sub:"#6e6a76"}
 };
 const FONTS={
-  cinzel:   {f:'"Cinzel","Pretendard Variable",Pretendard,serif', w:500, sp:5, up:true},
-  cormorant:{f:'"Cormorant Garamond","Pretendard Variable",Pretendard,serif', w:600, sp:1.5, up:false},
-  sans:     {f:'"Pretendard Variable",Pretendard,sans-serif', w:600, sp:14, up:true}
+  cinzel:   {f:'"Cinzel","SUIT Variable",SUIT,serif', w:500, sp:5, up:true},
+  cormorant:{f:'"Cormorant Garamond","SUIT Variable",SUIT,serif', w:600, sp:1.5, up:false},
+  sans:     {f:'"SUIT Variable",SUIT,sans-serif', w:600, sp:7, up:true}
 };
 function curPal(){const p=PAL[S.pal];return S.line?{...p,line:S.line}:p;}
-const UI_F='"Pretendard Variable",Pretendard,"Apple SD Gothic Neo",sans-serif';
+const UI_F='"SUIT Variable",SUIT,"Apple SD Gothic Neo",sans-serif';
 
 /* ================= state ================= */
 const W=900,H=1500;
@@ -616,21 +596,21 @@ function drawMinimal(c,p,F,D){
 
   c.textBaseline="middle";c.textAlign="center";
   // numeral
-  const NF=F===FONTS.sans?{f:F.f,w:400,s:24,sp:10}:F===FONTS.cormorant?{f:F.f,w:500,s:34,sp:4}:{f:F.f,w:400,s:27,sp:9};
+  const NF=F===FONTS.sans?{f:F.f,w:500,s:24,sp:6}:F===FONTS.cormorant?{f:F.f,w:500,s:34,sp:4}:{f:F.f,w:400,s:27,sp:9};
   c.font=`${NF.w} ${NF.s}px ${NF.f}`;spaced(c,S.num,cx,D.ny,NF.sp);
 
   // star
   sparkle(c,cx,1048,34);
 
   // title
-  const T=F===FONTS.sans?{w:500,s:40,sp:16}:F===FONTS.cormorant?{w:500,s:68,sp:2}:{w:400,s:52,sp:11};
+  const T=F===FONTS.sans?{w:500,s:42,sp:8}:F===FONTS.cormorant?{w:500,s:68,sp:2}:{w:400,s:52,sp:11};
   const title=F.up?(S.name||"").toUpperCase():(S.name||"");
   let ts=T.s;c.font=`${T.w} ${ts}px ${F.f}`;
   while(spW(c,title,T.sp)>W-230&&ts>26){ts-=2;c.font=`${T.w} ${ts}px ${F.f}`;}
   c.fillStyle=p.text;spaced(c,title,cx,1126,T.sp);
 
   // direction (+ name)
-  c.fillStyle=p.line;c.font='italic 500 29px "Cormorant Garamond","Pretendard Variable",serif';
+  c.fillStyle=p.line;c.font='italic 500 29px "Cormorant Garamond","SUIT Variable",serif';
   const dir=(S.rev?"Reversed":"Upright")+(S.who?"  ·  "+S.who:"");
   spaced(c,dir,cx,1186,1.2);
 
@@ -986,13 +966,6 @@ document.querySelectorAll("[data-copy]").forEach(b=>b.addEventListener("click",(
   const fb=()=>{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);try{document.execCommand("copy")?ok():(b.textContent="Ctrl+C");}catch(e){b.textContent="Ctrl+C";}};
   if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(ok,fb);else fb();}));
 
-/* site font */
-(function(){const btns=document.querySelectorAll(".fontpick button");
-  const set=f=>{if(f==="suit")delete document.documentElement.dataset.font;else document.documentElement.dataset.font=f;
-    btns.forEach(b=>b.setAttribute("aria-pressed",b.dataset.f===f));try{localStorage.setItem("tcm-font2",f);}catch(e){}};
-  btns.forEach(b=>b.onclick=()=>set(b.dataset.f));
-  try{const f=localStorage.getItem("tcm-font2");if(f)set(f);}catch(e){}})();
-
 /* routing */
 function route(){const v=["maker","arcana","ooc"].includes(location.hash.slice(1))?location.hash.slice(1):"maker";
   document.querySelectorAll("[data-v]").forEach(s=>{if(s.matches(".maker,.page"))s.hidden=s.dataset.v!==v;});
@@ -1002,7 +975,7 @@ function route(){const v=["maker","arcana","ooc"].includes(location.hash.slice(1
 addEventListener("hashchange",route);
 
 choose(17);route();
-Promise.all(['500 40px "Cinzel"','600 60px "Cormorant Garamond"','600 27px "Pretendard Variable"','400 22px "Pretendard Variable"'].map(f=>document.fonts.load(f).catch(()=>{}))).then(()=>draw());
+Promise.all(['500 40px "Cinzel"','600 60px "Cormorant Garamond"','600 27px "SUIT Variable"','400 22px "SUIT Variable"'].map(f=>document.fonts.load(f).catch(()=>{}))).then(()=>draw());
 document.fonts.ready.then(()=>draw());
 </script>
 </body>
